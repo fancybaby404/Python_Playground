@@ -1,1 +1,5 @@
-print(8%2)
+String = "Hello World"
+listedString = list(String)
+print(listedString)
+
+#LIST TAKES IN A STRING AND TAKES ENTIRE STRING AND SPLITS EVERY SINGLE LETTER AND PUTS IT INTO A LIST
