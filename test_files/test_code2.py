@@ -1,5 +1,7 @@
-String = "Hello World"
-listedString = list(String)
-print(listedString)
+text = "Balls"
 
-#LIST TAKES IN A STRING AND TAKES ENTIRE STRING AND SPLITS EVERY SINGLE LETTER AND PUTS IT INTO A LIST
+listed_text = list(text)
+
+print(listed_text)
+
+#output: ["B","a","l","l","s"]
