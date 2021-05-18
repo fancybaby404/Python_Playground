@@ -6,7 +6,6 @@ from art import logo
 bidders_dict = {}
 more_bidders = 'yes'
 i = 0
-
 def screen_clear():
     os.system('cls')
 
