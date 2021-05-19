@@ -3,7 +3,7 @@ from discord.ext import commands
 import logging
 from pathlib import Path
 import json
-
+#test
 
 cwd = Path(__file__).parent[0]
 cwd = str(cwd)
