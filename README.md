@@ -1,2 +1,9 @@
-# Python_Learning_Projects
-#this is just some python files i created throughout my 100 days of code journey
+---                                                                                      ---   
+
+
+Hi i am Julian, these are some the projects I made throughout my python learning journey. 🐍
+  
+Currently Day: '11'
+
+
+---                                                                                      ---
