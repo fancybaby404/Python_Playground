@@ -1,10 +1,10 @@
 ############### Blackjack Project #####################
 
-#Difficulty Normal 😎: Use all Hints below to complete the project.
-#Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
-#Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
-#Difficulty Expert 🤯: Only use Hint 1 to complete the project.
-
+#😂Difficulty Normal 😎: Use all Hints below to complete the project.
+#😂Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
+#😂Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
+#✅Difficulty Expert 🤯: Only use Hint 1 to complete the project.
+# DID DIFFICULTY EXPERT MUHAHAHA 😂😂🤣🤣
 ############### Our Blackjack House Rules #####################
 
 ## The deck is unlimited in size. 
@@ -22,15 +22,25 @@ import random
 import os
 from blackJack_art import logo
 
-def randomCards(cards, user_cards, computer_cards):
+def randomCards(cards, user_cards, computer_cards, total_user_cards, total_computer_cards):
     while len(user_cards) != 2 and len(computer_cards) != 2:
         randomInteger = random.randint(0, len(cards) -1)
         user_cards.append(cards[randomInteger])
         removeItem(cards, randomInteger)
+        total_user_cards = sum(user_cards)
+        #(USERCARDS)BLACK JACK: check if cards are 11 and 10, which makes the total amount card  to 0
+        if sum(user_cards) == 21  and len(user_cards) == 2:
+            total_user_cards == 0
 
         randomInteger = random.randint(0, len(cards) -1)
         computer_cards.append(cards[randomInteger])
         removeItem(cards, randomInteger)
+        total_computer_cards = sum(computer_cards)
+
+        #(COMPUTERCARDS)BLACK JACK: check if cards are 11 and 10, which makes the total amount card  to 0
+        if sum(computer_cards) == 21  and len(computer_cards) == 2:
+            total_computer_cards == 0
+            
     return user_cards, computer_cards
     #        randomChoice = random.choice(cards)
     #        user_cards.append(randomChoice)
@@ -49,7 +59,7 @@ def getCard(cards, person):
     #     return person.append(randomChoice)
 
 def getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards):
-    print(f"\n    Your final hand: {user_cards}, final score = {total_user_cards},\n    Computer's final hand: {computer_cards}, final score: {total_computer_cards}")
+    print(f"\nGame has ended, final results:\n    Your final hand: {user_cards}, final score = {total_user_cards},\n    Computer's final hand: {computer_cards}, final score: {total_computer_cards}")
 
 def play_again():
     
@@ -63,6 +73,53 @@ def play_again():
 def screen_clear():
     os.system('cls')
 
+def compare_cards(user_cards, computer_cards, total_user_cards, total_computer_cards):    
+    #tie   
+    if total_computer_cards == total_user_cards or total_user_cards == total_computer_cards:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print("It's a draw! 😮")
+        return play_again()
+    #blackjack:
+    elif total_user_cards == 0:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print(f"Won with a BlackJack! 😲 SHEESH")
+        return play_again()
+    elif total_computer_cards == 0:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print(f"Lost, opponent has Blackjack 😱")
+        return play_again()
+
+    #if user's cards are exactly 21
+    elif total_user_cards == 21:
+        getTotal(user_cards, total_user_cards, computer_cards,total_computer_cards)
+        print(f"You Won! 🤯")
+        return play_again()
+
+    #computer over 21 (WIN)
+    elif total_computer_cards > 21:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print("Computer went over! You won! 🤯")
+        return play_again()
+
+    #lose
+    elif total_computer_cards > total_user_cards:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print("You lost 😤")
+        return play_again()
+    
+    #win
+    elif total_user_cards > total_computer_cards:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print("You won! 🤯")
+        return play_again()
+
+def ace_card(card, total_card):
+    if 11 in card and total_card > 21:
+        print("    Ace card found! Turning it's value to 1")
+        card.remove(11)
+        card.append(1)
+        total_card = sum(card)
+
 def blackjack():
     screen_clear()
     #defining of variables
@@ -71,74 +128,60 @@ def blackjack():
     computer_cards = []
     total_computer_cards = 0
     total_user_cards = 0
-
+    computer_black_jack = False
 
     #randomizing the content of cards
-    randomCards(cards, user_cards,computer_cards)
-
-    #gets the total of all the cards
+    randomCards(cards, user_cards,computer_cards, total_user_cards, total_computer_cards)
     total_user_cards = sum(user_cards)
     total_computer_cards = sum(computer_cards)
+
+    #(USERCARDS)BLACK JACK: check if cards are 11 and 10, which makes the total amount card  to 0
+    if sum(user_cards) == 21  and len(user_cards) == 2:
+        total_user_cards = 0   
+    #(COMPUTERCARDS)BLACK JACK: check if cards are 11 and 10, which makes the total amount card  to 0
+    if sum(computer_cards) == 21  and len(computer_cards) == 2:
+        total_computer_cards = 0
+        computer_black_jack = True
 
     print(logo)
     print(f"    Your cards: {user_cards}, current score: {total_user_cards}\n    Computer's first card: {computer_cards[0]}")
 
     #hit or pass
     another_card = 'y'
-    if total_user_cards < 21:
+    if another_card == 'y':
         while(another_card == 'y'):
+            # user picks if they want to get another card
             another_card = input(f"Type 'y' to get another card, type 'n' to pass: ")
-
             if another_card == 'y':
+                #add card:
                 getCard(cards, user_cards)
+                total_user_cards = sum(user_cards)
+
+                #ace card:
+                ace_card(user_cards, total_user_cards)
                 total_user_cards = sum(user_cards)
                 print(f"    Your cards: {user_cards}, current score: {total_user_cards}\n    Computer's first card: {computer_cards[0]}")
             elif another_card == 'n':
-                pass       
+                pass
 
             #get a new card if computer cards is less than 17
-            if total_computer_cards < 17:
+            if total_computer_cards < 17 and not computer_black_jack:
+                #get card:
                 getCard(cards, computer_cards)
                 total_computer_cards = sum(computer_cards)
-           
+
+                # ace card:
+                ace_card(computer_cards, total_computer_cards)
+                total_computer_cards = sum(computer_cards)
+
             #if user cards above 21
             if total_user_cards > 21:
                 getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
                 print(f"You went over. You lost 😭")
                 return play_again()
 
-            #if user's cards are exactly 21
-            if total_user_cards == 21:
-                getTotal(user_cards, total_user_cards, computer_cards,total_computer_cards)
-                print(f"You Won! 🤯")
-                return play_again()
 
-
-    
-
-    #computer over 21 (WIN)
-    if total_computer_cards > 21:
-        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
-        print("Computer went over! You won! 🤯")
-        return play_again()
-
-    #tie   
-    if total_computer_cards == total_user_cards or total_user_cards == total_computer_cards:
-        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
-        print("It's a draw! 😮")
-        return play_again()
-
-    #lose
-    if total_computer_cards > total_user_cards:
-        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
-        print("You lost 😤")
-        return play_again()
-    
-    #win
-    if total_user_cards > total_computer_cards:
-        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
-        print("You won! 🤯")
-        return play_again()
+    compare_cards(user_cards, computer_cards, total_user_cards, total_computer_cards)
 
 blackjack()
 
