@@ -1,6 +1,4 @@
 
-
-
 print('''
 @@@@@@@@@&&%%%#(///**,,,,,,,,,,,,,...................,,,,,,,,***//(##%%&&@@@@@@@
 @@@@@&%#((//******,,,,,,,,,,,...............................,,,,,,,,,**/(##%&@@@
@@ -35,8 +33,10 @@ print('''
 /%&#&*#/(((((/(///((((//////(((((####%%%%%&&%%%###(///////////////////*/@@@(/(//
 @@&%(@////(((((((((((((//////////////((((((((((((/****/////////////(%@,.@@@(/@@@))
 ''')
-print("Welcome to Poggers Island.")
-print("Your mission is to find POGGERS.") 
+print("Welcome to Poggers Island.\nYour mission is to find POGGERS.")
+
+thisisthenumber = 5
+print(f"hello this your number {thisisthenumber}")
 
 left_or_right = input("WER U WANT TO GO? left or right? ")
 low_left_or_right = left_or_right.lower()

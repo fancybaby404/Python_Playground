@@ -9,8 +9,17 @@ i = 0
 def screen_clear():
     os.system('cls')
 
+def play_again():
+    play_again = input("Do you want to play another game? Type 'y' or 'n': ")
+    if play_again == 'y':
+        screen_clear()
+        blind_auction_game()
+    elif play_again == 'n':
+        exit()
+
 def blind_auction_game():
     print(f"{logo}\nHello... welcome to the secret bidding game.")
+    time.sleep(2)
 
     bidders_dict = {
     "bidder_name": [],
@@ -59,6 +68,7 @@ def blind_auction_game():
         #If there isn't a similar one then
         else:
             print(f"{incr_bidder} won with the bid of ${temp_largest_num}!")
+            play_again()
 
 
 blind_auction_game()

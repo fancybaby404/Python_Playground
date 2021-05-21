@@ -61,6 +61,7 @@ def guessing_game():
     # Losing statement
     print(f"You lost, the number to guess was {NUM_TO_GUESS}\n{istupid}")
     play_again()
+    
 # --------------------------------------------- END OF CODE ---------------------------------------------
 EASY_ATTEMPTS = 10
 HARD_ATTEMPTS = 5
