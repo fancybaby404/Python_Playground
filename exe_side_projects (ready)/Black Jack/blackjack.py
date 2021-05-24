@@ -19,8 +19,8 @@
 
 ##################### START #####################
 import random
-import replit
-from art import logo
+import os
+from blackJack_art import logo
 
 def randomCards(cards, user_cards, computer_cards, total_user_cards, total_computer_cards):
     while len(user_cards) != 2 and len(computer_cards) != 2:
@@ -71,7 +71,7 @@ def play_again():
         exit()
 
 def screen_clear():
-    replit.clear()
+    os.system('cls')
 
 def compare_cards(user_cards, computer_cards, total_user_cards, total_computer_cards):    
     #tie   
@@ -89,11 +89,11 @@ def compare_cards(user_cards, computer_cards, total_user_cards, total_computer_c
         print(f"Lost, opponent has Blackjack 😱")
         return play_again()
 
-	#if user cards above 21
-	elif total_user_cards > 21:
-		getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
-		print(f"You went over. You lost 😭")
-		return play_again()
+    #if user cards above 21
+    elif total_user_cards > 21:
+        getTotal(user_cards, total_user_cards, computer_cards, total_computer_cards)
+        print(f"You went over. You lost 😭")
+        return play_again()
 
     #if user's cards are exactly 21
     elif total_user_cards == 21:
