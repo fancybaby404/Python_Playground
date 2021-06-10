@@ -32,6 +32,14 @@ class Snake:
         self.add_snake(self.snake_body[-1].position())
         # extends the snake from the very end of the snake
 
+    def reset(self):
+        for body in self.snake_body:
+            body.goto(1000, 1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
+        self.head.shape("triangle")
+
     def move(self):
         for body_num in range(len(self.snake_body) - 1, 0, -1):
             new_x = self.snake_body[body_num - 1].xcor()  # [2][1][0]

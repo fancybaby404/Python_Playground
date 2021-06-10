@@ -4,12 +4,18 @@ from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard, GameOver
 
+# --- Directory --- #
+from os.path import dirname, join
+current_dir = dirname(__file__)
+
+road = join(current_dir, "road.png")
+
 # ---------- Initialization ----------
-screen = Screen()
+screen = Screen()   
 screen.setup(width=600, height=600)
 screen.tracer(0)
 screen.colormode(255)
-screen.bgpic(picname="")
+screen.bgpic(picname=road)
 
 player = Player()
 car_manager = CarManager()
