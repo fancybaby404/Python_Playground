@@ -1,0 +1,398 @@
+[
+  {
+    "Japanese": "おはようございます Ohayou gozaimasu",
+    "English": "Good morning"
+  },
+  {
+    "Japanese": "こんにちは Konnichiwa",
+    "English": "Hello/ good afternoon"
+  },
+  {
+    "Japanese": "こんばんは Konbanwa",
+    "English": "Good evening"
+  },
+  {
+    "Japanese": "おやすみなさい Oyasuminasai",
+    "English": "Goodnight"
+  },
+  {
+    "Japanese": "ありがとうございます Arigatou gozaimasu",
+    "English": "Thank you"
+  },
+  {
+    "Japanese": "すみません Sumimasen",
+    "English": "Excuse me/ sorry"
+  },
+  {
+    "Japanese": "ごめんなさい Gomennasai",
+    "English": "Sorry"
+  },
+  {
+    "Japanese": "はい Hai",
+    "English": "Yes"
+  },
+  {
+    "Japanese": "いいえ Iie",
+    "English": "No"
+  },
+  {
+    "Japanese": "わたし Watashi",
+    "English": "I/me"
+  },
+  {
+    "Japanese": "あなた Anata",
+    "English": "You"
+  },
+  {
+    "Japanese": "おかあさん Okaasan",
+    "English": "Mother"
+  },
+  {
+    "Japanese": "おとうさん Otousan",
+    "English": "Father"
+  },
+  {
+    "Japanese": "おじいさん Ojiisan",
+    "English": "Grandfather"
+  },
+  {
+    "Japanese": "おばあさん Obaasan",
+    "English": "Grandmother"
+  },
+  {
+    "Japanese": "おじさん Ojisan",
+    "English": "Uncle"
+  },
+  {
+    "Japanese": "おばさん Obasan",
+    "English": "Aunt"
+  },
+  {
+    "Japanese": "おにいさん Oniisan",
+    "English": "Older brother"
+  },
+  {
+    "Japanese": "おねえさん Oneesan",
+    "English": "Older sister"
+  },
+  {
+    "Japanese": "おとと Ototo",
+    "English": "Younger brother"
+  },
+  {
+    "Japanese": "いもうと Imouto",
+    "English": "Younger sister"
+  },
+  {
+    "Japanese": "いち Ichi",
+    "English": "One"
+  },
+  {
+    "Japanese": "に Ni",
+    "English": "Two"
+  },
+  {
+    "Japanese": "さん San",
+    "English": "Three"
+  },
+  {
+    "Japanese": "し,よん shi, yon",
+    "English": "Four"
+  },
+  {
+    "Japanese": "ご Go",
+    "English": "Five"
+  },
+  {
+    "Japanese": "ろく roku",
+    "English": "Six"
+  },
+  {
+    "Japanese": "しち,なな shichi, nana",
+    "English": "Seven"
+  },
+  {
+    "Japanese": "はち hachi",
+    "English": "Eight"
+  },
+  {
+    "Japanese": "く,きゅう ku, kyuu",
+    "English": "Nine"
+  },
+  {
+    "Japanese": "じゅう juu",
+    "English": "Ten"
+  },
+  {
+    "Japanese": "いちがつ Ichigatsu",
+    "English": "January"
+  },
+  {
+    "Japanese": "にがつ Nigatsu",
+    "English": "February"
+  },
+  {
+    "Japanese": "さんがつ Sangatsu",
+    "English": "March"
+  },
+  {
+    "Japanese": "しがつ Shigatsu",
+    "English": "April"
+  },
+  {
+    "Japanese": "ごがつ Gogatsu",
+    "English": "May"
+  },
+  {
+    "Japanese": "ろくがつ Rokugatsu",
+    "English": "June"
+  },
+  {
+    "Japanese": "しちがつ Shichigatsu",
+    "English": "July"
+  },
+  {
+    "Japanese": "はちがつ Hachigatsu",
+    "English": "August"
+  },
+  {
+    "Japanese": "くがつ Kugatsu",
+    "English": "September"
+  },
+  {
+    "Japanese": "じゅうがつ Juugatsu",
+    "English": "October"
+  },
+  {
+    "Japanese": "じゅういちがつ Juuichigatsu",
+    "English": "November"
+  },
+  {
+    "Japanese": "じゅうにがつ Juunigatsu",
+    "English": "December"
+  },
+  {
+    "Japanese": "げつようび Getsuyoubi",
+    "English": "Monday"
+  },
+  {
+    "Japanese": "かようび Kayoubi",
+    "English": "Tuesday"
+  },
+  {
+    "Japanese": "すいようび Suiyoubi",
+    "English": "Wednesday"
+  },
+  {
+    "Japanese": "もくようび Mokuyoubi",
+    "English": "Thursday"
+  },
+  {
+    "Japanese": "きんようび Kinyoubi",
+    "English": "Friday"
+  },
+  {
+    "Japanese": "どようび Doyoubi",
+    "English": "Saturday"
+  },
+  {
+    "Japanese": "にちようび Nichiyoubi",
+    "English": "Sunday"
+  },
+  {
+    "Japanese": "きのう Kinou",
+    "English": "Yesterday"
+  },
+  {
+    "Japanese": "きょう Kyou",
+    "English": "Today"
+  },
+  {
+    "Japanese": "あした Ashita",
+    "English": "Tomorrow"
+  },
+  {
+    "Japanese": "あさ Asa",
+    "English": "Morning"
+  },
+  {
+    "Japanese": "しょご",
+    "English": "Noon"
+  },
+  {
+    "Japanese": "ゆうがた Yuugata",
+    "English": "Evening"
+  },
+  {
+    "Japanese": "よる",
+    "English": "Night"
+  },
+  {
+    "Japanese": "たのしい Tanoshii",
+    "English": "Happy"
+  },
+  {
+    "Japanese": "かなしい Kanashii",
+    "English": "Sad"
+  },
+  {
+    "Japanese": "たかい Takai",
+    "English": "High/expensive"
+  },
+  {
+    "Japanese": "ひくい Hikui",
+    "English": "Low"
+  },
+  {
+    "Japanese": "やすい Yasui",
+    "English": "Cheap"
+  },
+  {
+    "Japanese": "はやい Hayai",
+    "English": "Fast/early"
+  },
+  {
+    "Japanese": "おそい Osoi",
+    "English": "Slow"
+  },
+  {
+    "Japanese": "いそがしい Isogashii",
+    "English": "Busy"
+  },
+  {
+    "Japanese": "おいしい Oishii",
+    "English": "Delicious"
+  },
+  {
+    "Japanese": "まずい Mazui",
+    "English": "Awful"
+  },
+  {
+    "Japanese": "あまい Amai",
+    "English": "Sweet"
+  },
+  {
+    "Japanese": "しょっぱい Shoppai",
+    "English": "Salty"
+  },
+  {
+    "Japanese": "すっぱい Suppai",
+    "English": "Sour"
+  },
+  {
+    "Japanese": "にがい Nigai",
+    "English": "Bitter"
+  },
+  {
+    "Japanese": "からい Karai",
+    "English": "Hot/ spicy"
+  },
+  {
+    "Japanese": "あつい Atsui",
+    "English": "Hot"
+  },
+  {
+    "Japanese": "あたかい Attakai",
+    "English": "Warm"
+  },
+  {
+    "Japanese": "さむい Samui",
+    "English": "Cold"
+  },
+  {
+    "Japanese": "あかるい Akarui",
+    "English": "Bright"
+  },
+  {
+    "Japanese": "くらい Kurai",
+    "English": "Dark"
+  },
+  {
+    "Japanese": "する Suru",
+    "English": "To do"
+  },
+  {
+    "Japanese": "みる Miru",
+    "English": "To see"
+  },
+  {
+    "Japanese": "きく Kiku",
+    "English": "To listen"
+  },
+  {
+    "Japanese": "はなす Hanasu",
+    "English": "To talk/speak"
+  },
+  {
+    "Japanese": "いう Iu",
+    "English": "To say"
+  },
+  {
+    "Japanese": "かく Kaku",
+    "English": "To write"
+  },
+  {
+    "Japanese": "たべる Taberu",
+    "English": "To eat"
+  },
+  {
+    "Japanese": "のむ Nomu",
+    "English": "To drink"
+  },
+  {
+    "Japanese": "あるく Aruku",
+    "English": "To walk"
+  },
+  {
+    "Japanese": "はしる Hashiru",
+    "English": "To run"
+  },
+  {
+    "Japanese": "すわる Suwaru",
+    "English": "To sit"
+  },
+  {
+    "Japanese": "たつ Tatsu",
+    "English": "To stand"
+  },
+  {
+    "Japanese": "たべもの Tabemono",
+    "English": "Food"
+  },
+  {
+    "Japanese": "のみもの Nomimono",
+    "English": "Drinks"
+  },
+  {
+    "Japanese": "ごはん Gohan",
+    "English": "Rice/meal"
+  },
+  {
+    "Japanese": "みず/れいすい Mizu/Reisui",
+    "English": "Water/cold water "
+  },
+  {
+    "Japanese": "おゆ Oyu",
+    "English": "Hot water"
+  },
+  {
+    "Japanese": "にく Niku",
+    "English": "Meat"
+  },
+  {
+    "Japanese": "やさい Yasai",
+    "English": "Vegetable"
+  },
+  {
+    "Japanese": "さかな Sakana",
+    "English": "Fish"
+  },
+  {
+    "Japanese": "ラーメン Ra-men",
+    "English": "Ramen"
+  },
+  {
+    "Japanese": "すし Sushi",
+    "English": "Sushi"
+  }
+]
