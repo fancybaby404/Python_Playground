@@ -9,7 +9,10 @@ index = {}
 wrong_button_pressed = True
 right_button_pressed = True
 
-# ------------------- DOESNT work right off ------------------- #
+reading_japanese_file = True
+reading_learn_file = True
+
+# ------------------- ...READ JSON FILE... -------------------- #
 # You have to change the indices | Japanese -> 1 | English -> 2 |
 jp_words_DATA = pd.read_json('data/japanese_words.json').to_dict(orient='records')
 
@@ -20,13 +23,18 @@ learn_index = 0
 try:
     learn_file = pd.read_csv('./words_to_learn.csv', encoding='utf-8', names=column_names)
 except FileNotFoundError:
-    pass
-
+    with open(file='words_to_learn.csv', mode='w', encoding='utf-8') as data_file:
+        data_file.write('')
+    learn_file = pd.read_csv('./words_to_learn.csv', encoding='utf-8', names=column_names)
 # Wrong button
 def wrong_button():
     global index
     global learn_index
     global learn_file
+    
+    global reading_japanese_file
+    global reading_learn_file   
+    
     # Check if file exists
     file_found = False
     try:
@@ -34,25 +42,27 @@ def wrong_button():
             data_file.read()
     except FileNotFoundError:
         file_found = False
- 
+    
     # Put the current cards into words_to_learn.csv
-    with open(file='words_to_learn.csv', mode='a', encoding='utf-8') as data_file:
+    with open(file='words_to_learn.csv', mode='a', encoding='utf-8') as data_file:        
+        learn_file = pd.read_csv('./words_to_learn.csv', encoding='utf-8', names=column_names)
         # if the file is found use the index of the words_to_learn 
         # to append the current card:
-
-        # TODO: FIX IF 
-        try:
-            if not file_found or len(learn_file.index) <= 5:
-                japanese = index['Japanese']
-                english = index['English']
-                data_file.write(f'{japanese},{english}\n')
-            else:
+        
+        # Append from japanese_words.json
+        if reading_japanese_file and not file_found and len(learn_file.index) <= 5:
+            japanese = index['Japanese']
+            english = index['English']
+            data_file.write(f'{japanese},{english}\n')
+        # Append from words_to_learn.csv
+        elif reading_learn_file and file_found and len(learn_file.index) >= 5:
+            try:
                 row = learn_file.loc[learn_index]
-                japanese = row['Japanese']
-                english = row['English']
-                data_file.write(f'{japanese},{english}\n')
-        except KeyError:
-            pass
+            except KeyError:
+                return
+            japanese = row['Japanese']
+            english = row['English']
+            data_file.write(f'{japanese},{english}\n')
     
     global wrong_button_pressed
     wrong_button_pressed = True
@@ -61,6 +71,8 @@ def wrong_button():
 def right_button():
     global learn_file
     global learn_index
+    global reading_japanese_file
+    global reading_learn_file
     
     # Check if file exists
     file_found = False
@@ -69,22 +81,29 @@ def right_button():
             data_file.read()
         file_found = True
     except FileNotFoundError:
-        file_found = False
-
-    print(len(learn_file.index))
-
-    if file_found and len(learn_file.index) >= 5:
+        file_found = False 
+    
+    # If the file is found and the amount of lines is greater than or equal to 5:
+    learn_file = pd.read_csv('./words_to_learn.csv', encoding='utf-8', names=column_names)
+    if reading_learn_file and file_found and len(learn_file.index) >= 5:
+        # update words_to_learn:
+        learn_file = pd.read_csv('./words_to_learn.csv', encoding='utf-8', names=column_names)
+        
         # Removes from words_to_learn
         with open("words_to_learn.csv", "r", encoding='utf-8') as f:
             lines = f.readlines()
-        with open("words_to_learn.csv", "w", encoding='utf-8') as f:
-            row = learn_file.loc[learn_index]
-            japanese = row["Japanese"]
-            english = row["English"]
-            for line in lines:
-                if line.strip('\n') != f'{japanese},{english}':
-                    print(line)
-                    f.write(line)
+        try:
+            with open("words_to_learn.csv", "w", encoding='utf-8') as f:
+                row = learn_file.loc[learn_index]
+                japanese = row["Japanese"]
+                english = row["English"]
+                for line in lines:
+                    if line.strip('\n') != f'{japanese},{english}':
+                        f.write(line)
+        except KeyError:
+            print('already removed')
+    else:
+        print('reading japanese file, canceling...')
 
     global right_button_pressed
     right_button_pressed = True
@@ -97,11 +116,13 @@ def random_card():
     
     global wrong_button_pressed
     global right_button_pressed
-
+    
+    global reading_japanese_file
+    global reading_learn_file
+    
     if not wrong_button_pressed or not right_button_pressed:
         pass
     else:
-        print('right button pressed')
         # --- Check if file exists --- #
         file_found = False
         try:
@@ -111,10 +132,11 @@ def random_card():
         except FileNotFoundError:
             file_found = False
         # ---------------------------- #
-        print(file_found)
         
         if not file_found or len(learn_file.index) <= 5:
             # Read japanese_words.json
+            reading_japanese_file = True
+            print('reading from japanese_words')
             global index
             index = choice(jp_words_DATA)
             
@@ -125,8 +147,12 @@ def random_card():
             card_canvas.itemconfig(card_image, image=card_front_image)
         else:
             # Read words_to_learn.csv
+            reading_learn_file = True
+            print('reading from words_to_learn')
             learn_index = randint(0, len(learn_file.index) - 1)
+            print(f'\n{learn_index=}')
             row = learn_file.loc[learn_index]
+            print(f'\n{row=}')
             japanese = row['Japanese']
             
             # Change Labels
@@ -161,7 +187,6 @@ def flip_card():
         card_canvas.itemconfig(language_label, text="English", fill='white')
         card_canvas.itemconfig(word_label, text=f'{english}', fill='white')
     else:
-        global learn_index
         row = learn_file.loc[learn_index]
         english = row['English']
         
